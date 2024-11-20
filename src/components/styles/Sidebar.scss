@@ -1,0 +1,22 @@
+/* Sidebar.scss */
+.sidebar {
+    background-color: #1a1a2e;
+    color: #fff;
+    .logo {
+      font-size: 24px;
+      padding: 20px;
+    }
+    .menu {
+      list-style: none;
+      padding: 0;
+      li {
+        padding: 15px 20px;
+        cursor: pointer;
+        &:hover,
+        &.active {
+          background-color: #f39c12;
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,39 @@
+.wallet-table {
+    background-color: #292943;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+  
+      thead {
+        background-color: #1a1a2e;
+        color: #f39c12;
+  
+        th {
+          padding: 10px;
+          text-align: left;
+        }
+      }
+  
+      tbody {
+        tr {
+          border-bottom: 1px solid #444;
+  
+          &:hover {
+            background-color: #333;
+          }
+  
+          td {
+            padding: 10px;
+            color: #bbb;
+          }
+        }
+      }
+    }
+  }
+  

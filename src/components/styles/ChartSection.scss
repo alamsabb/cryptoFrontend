@@ -1,0 +1,18 @@
+.chart-section {
+    background-color: #1f1f30;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+  
+    canvas {
+      max-height: 300px;
+    }
+  }
+  

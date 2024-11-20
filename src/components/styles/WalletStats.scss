@@ -1,0 +1,35 @@
+.wallet-stats {
+    background-color: #292943;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+  
+    p {
+      font-size: 24px;
+      font-weight: 700;
+      color: #f39c12;
+    }
+  
+    .stats {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+  
+      div {
+        font-size: 14px;
+        font-weight: 500;
+        span {
+          color: #bbb;
+        }
+      }
+    }
+  }
+  
