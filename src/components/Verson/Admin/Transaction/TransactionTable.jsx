@@ -1,6 +1,13 @@
+import axios from "axios";
 import React from "react";
 
 function TransactionTable({ data, refresh }) {
+  const handleSend = (id) => {
+    axios.put(`http://localhost:8000/Transaction/${id}`).then((res) => {
+      refresh();
+      console.log(res);
+    });
+  };
   return (
     <div>
       <table className="Transaction-table">
@@ -11,6 +18,7 @@ function TransactionTable({ data, refresh }) {
             <th>Full Name</th>
             <th>Email</th>
             <th>Amount</th>
+            <th>Intrest</th>
             <th>Total Amount</th>
             <th>Transfer Wallet Number</th>
             <th>Actions</th>
@@ -24,11 +32,18 @@ function TransactionTable({ data, refresh }) {
               <td>{item.fullName}</td>
               <td>{item.email}</td>
               <td>{item.amount}</td>
+              <td>{item.totalIntrest || 0}</td>
               <td>{item.amount + (item.totalIntrest || 0)}</td>
               <td>{item.transferWalletNumber}</td>
               <td>
                 <div className="actionButton">
-                  <button className="approve">Send</button>
+                  <button
+                    className="approve"
+                    onClick={() => handleSend(item.walletNumber)}
+                  >
+                    {" "}
+                    Send
+                  </button>
                 </div>
               </td>
             </tr>

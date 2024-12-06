@@ -34,9 +34,8 @@ function Login() {
         .post("http://localhost:8000/loginAdmin", formdata)
         .then((res) => {
           console.log(res);
-          localStorage.setItem("email", res.data.response.email);
           localStorage.setItem("isAdmin", true);
-          navigate("/Admin/dashboard");
+          navigate("/Admin/Request");
           onClose();
         })
         .catch((err) => {

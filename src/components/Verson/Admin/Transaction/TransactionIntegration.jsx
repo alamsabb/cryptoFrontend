@@ -15,13 +15,13 @@ function TransactionIntegration() {
       console.log(res);
       setTransaction(res.data.dataStored);
     });
-  }, []);
+  }, [refresh]);
 
   return (
     <div>
       <h1>Transaction</h1>
       <div className="table">
-        <TransactionTable data={transaction} refresh={refresh} />
+        <TransactionTable data={transaction} refresh={handleRefresh} />
       </div>
     </div>
   );

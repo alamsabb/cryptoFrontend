@@ -10,63 +10,28 @@ import {
 } from "@mui/icons-material";
 import LineChart from "./LineChart";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Dashboard() {
-  const mockTransactions = [
-    {
-      txId: "01e4dsa",
-      user: "johndoe",
-      date: "2021-09-01",
-      cost: "43.95",
-    },
-    {
-      txId: "0315dsaa",
-      user: "jackdower",
-      date: "2022-04-01",
-      cost: "133.45",
-    },
-    {
-      txId: "01e4dsa",
-      user: "aberdohnny",
-      date: "2021-09-01",
-      cost: "43.95",
-    },
-    {
-      txId: "51034szv",
-      user: "goodmanave",
-      date: "2022-11-05",
-      cost: "200.95",
-    },
-    {
-      txId: "0a123sb",
-      user: "stevebower",
-      date: "2022-11-02",
-      cost: "13.55",
-    },
-    {
-      txId: "01e4dsa",
-      user: "aberdohnny",
-      date: "2021-09-01",
-      cost: "43.95",
-    },
-    {
-      txId: "120s51a",
-      user: "wootzifer",
-      date: "2019-04-15",
-      cost: "24.20",
-    },
-    {
-      txId: "0315dsaa",
-      user: "jackdower",
-      date: "2022-04-01",
-      cost: "133.45",
-    },
-  ];
+  const [dataStored, setDataStored] = React.useState({});
+  const [transaction, setTransaction] = React.useState([]);
+  useEffect(() => {
+    const id = localStorage.getItem("wallet");
+    if (!id) return;
+    axios.get(`http://localhost:8000/profile/${id}`).then((res) => {
+      setDataStored(res.data.user);
+    });
+    axios.get(`http://localhost:8000/userTransaction/${id}`).then((res) => {
+      console.log(res.data.user);
+      setTransaction(res.data.user);
+    });
+  }, []);
+
   const navigate = useNavigate();
   useEffect(() => {
     const email = localStorage.getItem("email");
-    console.log(email);
-    if (!email) {
+    const id = localStorage.getItem("wallet");
+    if (!email || !id) {
       navigate("/");
     }
   }, []);
@@ -81,7 +46,7 @@ function Dashboard() {
               fontWeight="bold"
               sx={{ m: "0 0 5px 0" }}
             >
-              {"Dashoard"}
+              {dataStored.fullName}
             </Typography>
             <Typography variant="h5" color={"#70d8bd"}>
               {"Welcome to your dashboard"}
@@ -108,7 +73,7 @@ function Dashboard() {
             justifyContent="center"
           >
             <StatBox
-              title="12,361"
+              title={dataStored.amount}
               subtitle="Investment"
               progress="0.75"
               increase="+14%"
@@ -128,7 +93,7 @@ function Dashboard() {
             justifyContent="center"
           >
             <StatBox
-              title="5%"
+              title="5% /Day"
               subtitle="ROI"
               progress="0.75"
               increase="+0.2%"
@@ -148,8 +113,8 @@ function Dashboard() {
             justifyContent="center"
           >
             <StatBox
-              title="12,361"
-              subtitle="Referral"
+              title={dataStored.totalIntrest}
+              subtitle="Intrest Amount"
               progress="0.75"
               increase="+14%"
               icon={<PersonAdd sx={{ color: "#3da58a", fontSize: "26px" }} />}
@@ -168,8 +133,8 @@ function Dashboard() {
             justifyContent="center"
           >
             <StatBox
-              title="12,361"
-              subtitle="Transaction"
+              title={dataStored.amount + dataStored.totalIntrest}
+              subtitle="Total Amount"
               progress="0.75"
               increase="+34%"
               icon={<Traffic sx={{ color: "#3da58a", fontSize: "26px" }} />}
@@ -245,9 +210,9 @@ function Dashboard() {
                 Recent Transactions
               </Typography>
             </Box>
-            {mockTransactions.map((transaction, i) => (
+            {transaction.map((transaction, i) => (
               <Box
-                key={`${transaction.txId}-${i}`}
+                key={`${transaction._id}-${i}`}
                 display="flex"
                 justifyContent="space-between"
                 alignItems="center"
@@ -256,17 +221,21 @@ function Dashboard() {
               >
                 <Box>
                   <Typography color={"#4cceac"} variant="h5" fontWeight="600">
-                    {transaction.txId}
+                    {transaction._id.slice(-5)}
                   </Typography>
-                  <Typography color={"#e0e0e0"}>{transaction.user}</Typography>
+                  <Typography color={"#e0e0e0"}>
+                    {transaction.sender}
+                  </Typography>
                 </Box>
-                <Box color={"#e0e0e0"}>{transaction.date}</Box>
+                <Box color={"#e0e0e0"}>
+                  {new Date(transaction.date).toISOString().split("T")[0]}
+                </Box>
                 <Box
                   backgroundColor={"#4cceac"}
                   p="5px 10px"
                   borderRadius="4px"
                 >
-                  ${transaction.cost}
+                  ${transaction.amount}
                 </Box>
               </Box>
             ))}
