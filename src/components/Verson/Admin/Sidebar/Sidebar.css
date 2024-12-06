@@ -1,0 +1,75 @@
+/* Sidebar.css */
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap");
+
+.sidebar {
+  width: 200px;
+  height: calc(100% - 40px);
+  background-color: hsl(240, 5%, 8%);
+  border: 1px solid #eceff4;
+  padding: 20px;
+  font-family: "Nunito Sans", sans-serif;
+  position: relative;
+}
+
+.sidebar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 40px;
+}
+
+.sidebar ul li {
+  padding: 10px;
+  cursor: pointer;
+  margin: 20px 0;
+}
+
+.sidebar ul .active {
+  background-color: hsl(222, 100%, 61%);
+  color: white;
+  border-radius: 11px;
+}
+.sidebar-li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+}
+.selectedImg {
+  filter: brightness(0) saturate(100%) invert(100%);
+}
+.sidebar-li img {
+  width: 20px;
+  height: 30px;
+}
+.sidebar-li button {
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 158px;
+  height: 56px;
+  font-size: 16px;
+  line-height: 24.55px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
+  color: #b1b1b1;
+  cursor: pointer;
+  justify-content: center;
+}
+.sidebar-li button img {
+  width: 20px;
+  height: 20px;
+}
+/* .sidebar-li button:hover {
+  background-color: #feedd9;
+  color: #f8951d;
+  border-radius: 12px;
+} */

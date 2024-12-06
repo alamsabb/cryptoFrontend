@@ -1,0 +1,62 @@
+.Request-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: transparent;
+}
+.Request-table thead,
+.Request-table tbody {
+  background-color: transparent;
+}
+.Request-table th {
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px;
+  text-align: left;
+}
+.Request-table td {
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px;
+  text-align: left;
+}
+.Request-table td:nth-child(1) {
+  width: 10%;
+}
+.Request-table td:nth-child(2) {
+  width: 10%;
+}
+.Request-table td:nth-child(3) {
+  width: 20%;
+}
+.Request-table td:nth-child(4) {
+  width: 5%;
+}
+.Request-table td:last-child {
+  width: 20%;
+}
+.actionButton {
+  display: flex;
+  gap: 10px;
+}
+.approve {
+  background-color: #00b87c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.reject {
+  background-color: #ff3d71;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}

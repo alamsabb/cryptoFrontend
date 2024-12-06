@@ -1,0 +1,27 @@
+.Transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: transparent;
+}
+.Transaction-table thead,
+.Transaction-table tbody {
+  background-color: transparent;
+}
+.Transaction-table th {
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px;
+  text-align: left;
+}
+.Transaction-table td {
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px;
+  text-align: left;
+}

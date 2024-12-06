@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.css";
-import { a } from "framer-motion/client";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 

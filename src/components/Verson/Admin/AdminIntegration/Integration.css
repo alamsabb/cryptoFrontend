@@ -1,0 +1,10 @@
+.Integration {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  max-height: 180vh;
+  overflow: hidden;
+}
+.rightContent {
+  padding: 3rem;
+}
